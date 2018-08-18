@@ -13,10 +13,10 @@ injectGlobal`
 
 const theme = {
   colors: {
-    green: 'mediumseegreen',
-    offwhite: 'snow',
-    red: 'tomato',
-    white: 'white',
+    green: '#3CB371',
+    offwhite: '#FFFAFA',
+    red: '#FF6347',
+    white: '#FFF',
     redwhite: '#FFEEEA'
   }
 }

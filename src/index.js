@@ -2,14 +2,23 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { ThemeProvider } from 'styled-components'
 import theme from './theme'
-import registerServiceWorker from './registerServiceWorker'
+import muiTheme from './muiTheme'
+import { MuiThemeProvider } from '@material-ui/core/styles'
+// import registerServiceWorker from './registerServiceWorker'
 import App from './components/app'
 import 'typeface-roboto'
+// import ApolloClient from 'apollo-boost'
+
+// const client = new ApolloClient({
+//   uri: 'localhost:9000/grapql'
+// })
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <App />
-  </ThemeProvider>,
+  <MuiThemeProvider theme={muiTheme}>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </MuiThemeProvider>,
   document.getElementById('root')
 )
-registerServiceWorker()
+// registerServiceWorker()
