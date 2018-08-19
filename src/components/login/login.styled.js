@@ -15,5 +15,10 @@ export const LoginFormHolderStyled = styled.div`
 
 export const LoginButtonHolderStyled = styled.div`
   width: 100%;
-  margin-top: 8px;
+  margin-top: 16px;
+`
+
+export const LoginInputHolderStyled = styled.div`
+  margin-top: 16px;
+  margin-bottom: 16px;
 `
