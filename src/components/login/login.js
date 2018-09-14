@@ -10,7 +10,14 @@ import Card from '../card/card.styled'
 import TextField from '@material-ui/core/TextField'
 import { Typography, Button } from '@material-ui/core'
 
-const Login = ({ onLogin, onInputChange, emailValue, passwordValue, msg }) => (
+const Login = ({
+  onLogin,
+  onInputChange,
+  emailValue,
+  passwordValue,
+  msg,
+  disable
+}) => (
   <LoginStyled>
     <LoginFormHolderStyled>
       <Card>
@@ -29,6 +36,7 @@ const Login = ({ onLogin, onInputChange, emailValue, passwordValue, msg }) => (
               id="email"
               label="E-mail"
               value={emailValue}
+              disabled={disable}
               onChange={e => onInputChange(e.target.id, e.target.value)}
             />
             <TextField
@@ -37,13 +45,20 @@ const Login = ({ onLogin, onInputChange, emailValue, passwordValue, msg }) => (
               type="password"
               label="Password"
               value={passwordValue}
+              disabled={disable}
               onChange={e => onInputChange(e.target.id, e.target.value)}
             />
           </LoginInputHolderStyled>
           {msg && <Typography color="error">{msg}</Typography>}
           <LoginButtonHolderStyled>
-            <Button color="primary" variant="raised" fullWidth type="submit">
-              Inloggen
+            <Button
+              color="primary"
+              variant="raised"
+              fullWidth
+              type="submit"
+              disabled={disable}
+            >
+              {disable ? 'Inloggen..' : 'Log in'}
             </Button>
           </LoginButtonHolderStyled>
         </form>
@@ -59,5 +74,6 @@ Login.propTypes = {
   onInputChange: PropTypes.func.isRequired,
   emailValue: PropTypes.string.isRequired,
   passwordValue: PropTypes.string.isRequired,
-  msg: PropTypes.string
+  msg: PropTypes.string,
+  disable: PropTypes.bool.isRequired
 }

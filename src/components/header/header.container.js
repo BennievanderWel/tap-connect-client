@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { HeaderStyled } from './header.styled'
-import { Typography } from '@material-ui/core'
+import Header from './header'
+import { AppContext } from '../../context'
 
 class HeaderContainer extends Component {
   render() {
     return (
-      <HeaderStyled>
-        <Typography variant="title">TapConnect</Typography>
-      </HeaderStyled>
+      <AppContext.Consumer>
+        {({ logout }) => <Header onLogout={logout} />}
+      </AppContext.Consumer>
     )
   }
 }
