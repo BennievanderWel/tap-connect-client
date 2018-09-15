@@ -20,6 +20,13 @@ class LoginContainer extends Component {
   }
 
   componentDidMount() {
+    this.fetchUser()
+  }
+
+  /**
+   * Try to fetch the currently logged user
+   */
+  fetchUser() {
     this.props.client
       .query({
         query: getUserQuery
@@ -62,6 +69,7 @@ class LoginContainer extends Component {
     )
   }
 
+  // TODO: User Formik for the login form
   handleInputChange(name, value) {
     this.setState(() => ({ [name]: value }))
   }

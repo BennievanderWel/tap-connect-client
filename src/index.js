@@ -10,6 +10,10 @@ import 'typeface-roboto'
 import { ApolloClient, ApolloLink, InMemoryCache, HttpLink } from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import { getToken } from './utils/token'
+import { Provider } from 'react-redux'
+import { createStore, combineReducers } from 'redux'
+import { messages } from './redux/reducers'
+import MessageToaster from './components/messageToaster/MessageToaster'
 
 // Specify the GrapQL URI and set headers on the operation context
 const httpLink = new HttpLink({ uri: 'http://localhost:9000/grapql' })
@@ -31,14 +35,25 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 })
 
+// Create Redux store with the combined reducers
+const reducers = combineReducers({
+  messages: messages
+})
+export const store = createStore(reducers)
+
 // Render to the DOM
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <MuiThemeProvider theme={muiTheme}>
-      <ThemeProvider theme={theme}>
-        <App />
-      </ThemeProvider>
-    </MuiThemeProvider>
+    <Provider store={store}>
+      <MuiThemeProvider theme={muiTheme}>
+        <ThemeProvider theme={theme}>
+          <React.Fragment>
+            <MessageToaster />
+            <App />
+          </React.Fragment>
+        </ThemeProvider>
+      </MuiThemeProvider>
+    </Provider>
   </ApolloProvider>,
   document.getElementById('root')
 )
