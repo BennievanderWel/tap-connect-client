@@ -78,7 +78,7 @@ class MessageToaster extends Component {
           horizontal: 'center'
         }}
         open={open}
-        autoHideDuration={3000}
+        autoHideDuration={2000}
         onClose={this.handleClose}
         onExited={this.handleExited}
         message={messageInProcess ? messageInProcess.message : ''}

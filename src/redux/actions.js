@@ -18,7 +18,6 @@ export function createMessage(message) {
  * needs to be deleted
  */
 export function deleteMessage(messageId) {
-  console.log(5)
   return {
     type: DELETED_MESSAGE,
     payload: { id: messageId }

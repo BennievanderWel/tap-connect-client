@@ -3,9 +3,9 @@ import Login from './login'
 import axios from 'axios'
 import { saveToken } from '../../utils/token'
 import PropTypes from 'prop-types'
-import { CircularProgress } from '@material-ui/core'
 import { withApollo } from 'react-apollo'
 import { getUserQuery } from 'services/api/queries'
+import Loader from '../loader/Loader'
 
 class LoginContainer extends Component {
   constructor() {
@@ -79,7 +79,7 @@ class LoginContainer extends Component {
 
     return (
       <React.Fragment>
-        {loading && <CircularProgress />}
+        {loading && <Loader />}
         {!loading && (
           <Login
             onLogin={this.handleLogin.bind(this)}
