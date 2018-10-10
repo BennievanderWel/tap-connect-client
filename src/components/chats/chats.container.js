@@ -7,6 +7,7 @@ import { Query } from 'react-apollo'
 import { getChatsQuery } from '../../services/api/queries'
 import Loader from '../../utils/components/loader'
 import Text from '../../utils/components/text'
+import Icon from '../../utils/icons'
 
 class ChatsContainer extends Component {
   renderChats(chats) {
@@ -21,13 +22,12 @@ class ChatsContainer extends Component {
     return (
       <Query query={getChatsQuery}>
         {({ loading, data }) => {
-          console.log(loading)
-          console.log(data)
           return (
             <ChatsStyled>
               <Card fullHeight>
                 <Button color="primary" variant="outlined" fullWidth>
-                  Add chat
+                  <Icon icon="add" />
+                  Nieuwe chat
                 </Button>
                 <ChatListStyled>
                   {loading && <Loader />}

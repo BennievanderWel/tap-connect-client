@@ -15,7 +15,7 @@ import {
   ListItemIcon,
   ListItemText
 } from '@material-ui/core'
-import { EllipsisIcon, PowerIcon } from '../../utils/icons'
+import Icon from '../../utils/icons'
 import { getCurrentUser } from '../../utils/cache'
 
 class Header extends Component {
@@ -45,7 +45,7 @@ class Header extends Component {
             </Typography>
           </UsernameText>
           <IconButton onClick={this.openMenu}>
-            <EllipsisIcon />
+            <Icon icon="ellipsis" />
           </IconButton>
           <Menu
             anchorEl={anchorEl}
@@ -54,7 +54,7 @@ class Header extends Component {
           >
             <MenuItem onClick={this.props.onLogout}>
               <ListItemIcon>
-                <PowerIcon />
+                <Icon icon="power" />
               </ListItemIcon>
               <ListItemText inset primary="Uitloggen" />
             </MenuItem>

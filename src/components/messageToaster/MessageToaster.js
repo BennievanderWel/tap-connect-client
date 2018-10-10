@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { MessageToasterStyled } from './MessageToaster.styled'
-import { ClearIcon } from '../../utils/icons'
+import Icon from '../../utils/icons'
 import { deleteMessage } from 'redux/actions'
 import { IconButton } from '@material-ui/core'
 
@@ -84,7 +84,7 @@ class MessageToaster extends Component {
         message={messageInProcess ? messageInProcess.message : ''}
         action={[
           <IconButton key="close" onClick={this.handleClose}>
-            <ClearIcon />
+            <Icon icon="clear" />
           </IconButton>
         ]}
       />
