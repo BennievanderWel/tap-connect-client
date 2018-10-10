@@ -15,7 +15,7 @@ class LoginContainer extends Component {
       password: '',
       errorMsg: '',
       loading: true,
-      disableForm: false
+      submitting: false
     }
   }
 
@@ -45,7 +45,7 @@ class LoginContainer extends Component {
 
     // Disable form and login on callback of setState
     this.setState(
-      () => ({ disableForm: true }),
+      () => ({ submitting: true }),
       () => {
         // Call login endpoint, receive token, save token, call login prop
         axios
@@ -75,7 +75,7 @@ class LoginContainer extends Component {
   }
 
   render() {
-    const { email, password, errorMsg, loading, disableForm } = this.state
+    const { email, password, errorMsg, loading, submitting } = this.state
 
     return (
       <React.Fragment>
@@ -87,7 +87,7 @@ class LoginContainer extends Component {
             emailValue={email}
             passwordValue={password}
             msg={errorMsg}
-            disable={disableForm}
+            submitting={submitting}
           />
         )}
       </React.Fragment>

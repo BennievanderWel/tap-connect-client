@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { ChatsStyled } from './chats.styled'
 import Card from '../card/card.styled'
-import { emitMessage } from '../../utils/messageToaster'
-import { Typography, Button } from '@material-ui/core'
+// import { emitMessage } from '../../utils/messageToaster'
+import { Button } from '@material-ui/core'
 import { Query } from 'react-apollo'
 import { getChatsQuery } from '../../services/api/queries'
 

@@ -6,7 +6,7 @@ import {
   LoginButtonHolderStyled,
   LoginInputHolderStyled
 } from './login.styled'
-import Card from '../card/card.styled'
+import Card from '../card/card'
 import TextField from '@material-ui/core/TextField'
 import { Typography, Button } from '@material-ui/core'
 
@@ -16,11 +16,11 @@ const Login = ({
   emailValue,
   passwordValue,
   msg,
-  disable
+  submitting
 }) => (
   <LoginStyled>
     <LoginFormHolderStyled>
-      <Card>
+      <Card mode="form" submitting={submitting}>
         <form
           onSubmit={e => {
             e.preventDefault()
@@ -36,7 +36,7 @@ const Login = ({
               id="email"
               label="E-mail"
               value={emailValue}
-              disabled={disable}
+              disabled={submitting}
               onChange={e => onInputChange(e.target.id, e.target.value)}
             />
             <TextField
@@ -45,7 +45,7 @@ const Login = ({
               type="password"
               label="Password"
               value={passwordValue}
-              disabled={disable}
+              disabled={submitting}
               onChange={e => onInputChange(e.target.id, e.target.value)}
             />
           </LoginInputHolderStyled>
@@ -56,9 +56,9 @@ const Login = ({
               variant="raised"
               fullWidth
               type="submit"
-              disabled={disable}
+              disabled={submitting}
             >
-              {disable ? 'Inloggen..' : 'Log in'}
+              {submitting ? 'Inloggen..' : 'Log in'}
             </Button>
           </LoginButtonHolderStyled>
         </form>
@@ -75,5 +75,5 @@ Login.propTypes = {
   emailValue: PropTypes.string.isRequired,
   passwordValue: PropTypes.string.isRequired,
   msg: PropTypes.string,
-  disable: PropTypes.bool.isRequired
+  submitting: PropTypes.bool.isRequired
 }

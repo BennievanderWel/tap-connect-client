@@ -17,7 +17,8 @@ const theme = {
     offwhite: '#FFFAFA',
     red: '#FF6347',
     white: '#FFF',
-    redwhite: '#FFEEEA'
+    redwhite: '#FFEEEA',
+    lightred: '#FFCDC3'
   }
 }
 
