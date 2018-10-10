@@ -20,5 +20,5 @@ export const HeaderRightContent = styled.div`
 
 export const UsernameText = styled.div`
   padding-right: 10px;
-  margin-top: 12px;
+  margin-top: 14px;
 `
