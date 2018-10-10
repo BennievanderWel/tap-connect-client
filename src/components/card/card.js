@@ -9,7 +9,8 @@ import {
 
 class Card extends Component {
   static propTypes = {
-    children: PropTypes.object,
+    children: PropTypes.array,
+    fullHeight: PropTypes.bool,
     mode: PropTypes.oneOf(['form', 'paper']),
     submitting: (props, propName) => {
       // Console log an error if mode === 'form' and submitting value is
@@ -27,14 +28,15 @@ class Card extends Component {
   }
 
   static defaultProps = {
-    mode: 'paper'
+    mode: 'paper',
+    fullHeight: false
   }
 
   render() {
-    const { mode, submitting } = this.props
+    const { mode, submitting, fullHeight } = this.props
 
     return (
-      <CardStyled>
+      <CardStyled fullHeight={fullHeight}>
         <CardContentStyled>{this.props.children}</CardContentStyled>
         {mode === 'form' ? (
           submitting ? (

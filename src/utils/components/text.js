@@ -7,15 +7,29 @@ const TextStyled = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: ${props => props.theme.colors[props.color]};
+  ${props => (props.fontStyle ? 'font-style:' + props.fontStyle : '')};
 `
 
 class Text extends PureComponent {
   static propTypes = {
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    fontStyle: PropTypes.oneOf(['italic', 'bold']),
+    color: PropTypes.oneOf(['grey', 'red'])
+  }
+
+  static defaultProps = {
+    color: 'black'
   }
 
   render() {
-    return <TextStyled>{this.props.text}</TextStyled>
+    const { text, fontStyle, color } = this.props
+
+    return (
+      <TextStyled fontStyle={fontStyle} color={color}>
+        {text}
+      </TextStyled>
+    )
   }
 }
 

@@ -40,7 +40,7 @@ class Header extends Component {
         </HeaderLeftContent>
         <HeaderRightContent>
           <UsernameText>
-            <Typography align="center">
+            <Typography align="center" noWrap>
               {getCurrentUser(this.props.client).username}
             </Typography>
           </UsernameText>

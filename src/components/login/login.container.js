@@ -5,7 +5,7 @@ import { saveToken } from '../../utils/token'
 import PropTypes from 'prop-types'
 import { withApollo } from 'react-apollo'
 import { getUserQuery } from 'services/api/queries'
-import Loader from '../loader/Loader'
+import Loader from '../../utils/components/loader'
 
 class LoginContainer extends Component {
   constructor() {
