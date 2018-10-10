@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ChatsStyled } from './chats.styled'
-import Card from '../card/card.styled'
+import Card from '../card/card'
 // import { emitMessage } from '../../utils/messageToaster'
 import { Button } from '@material-ui/core'
 import { Query } from 'react-apollo'

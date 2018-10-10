@@ -36,10 +36,14 @@ class Card extends Component {
     return (
       <CardStyled>
         <CardContentStyled>{this.props.children}</CardContentStyled>
-        {submitting ? (
-          <SubmittingIndicatorStyled color="primary" />
+        {mode === 'form' ? (
+          submitting ? (
+            <SubmittingIndicatorStyled color="primary" />
+          ) : (
+            <SubmittingIndicatorPlaceholderStyled />
+          )
         ) : (
-          <SubmittingIndicatorPlaceholderStyled />
+          <div />
         )}
       </CardStyled>
     )
