@@ -9,3 +9,13 @@ export const getUserQuery = gql`
     }
   }
 `
+
+export const getChatsQuery = gql`
+  {
+    getChats {
+      _id
+      username
+      email
+    }
+  }
+`
