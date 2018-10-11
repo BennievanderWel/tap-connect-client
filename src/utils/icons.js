@@ -9,7 +9,7 @@ import AddIcon from '@material-ui/icons/Add'
 
 const Spacer = styled.div`
   margin-right: 16px;
-  height: 27px;
+  height: 24px;
 `
 
 const iconMapper = {
