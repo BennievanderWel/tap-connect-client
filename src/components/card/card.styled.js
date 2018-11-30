@@ -10,7 +10,7 @@ export const CardStyled = styled.div`
 `
 
 export const CardContentStyled = styled.div`
-  padding: 12px;
+  padding: ${({ noPadding }) => noPadding ? '0px' : '12px'};
 `
 
 export const SubmittingIndicatorStyled = styled(LinearProgress)`

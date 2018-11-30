@@ -6,6 +6,8 @@ import LogoutIcon from '@material-ui/icons/ExitToApp'
 import PowerIcon from '@material-ui/icons/PowerSettingsNew'
 import ClearIcon from '@material-ui/icons/Clear'
 import AddIcon from '@material-ui/icons/Add'
+import AddUserIcon from '@material-ui/icons/PersonAdd'
+import UserIcon from '@material-ui/icons/Person'
 
 const Spacer = styled.div`
   margin-right: 16px;
@@ -17,7 +19,9 @@ const iconMapper = {
   logout: LogoutIcon,
   power: PowerIcon,
   clear: ClearIcon,
-  add: AddIcon
+  add: AddIcon,
+  user: UserIcon,
+  addUser: AddUserIcon
 }
 
 const Icon = ({ icon }) => {

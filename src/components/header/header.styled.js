@@ -10,7 +10,8 @@ export const HeaderStyled = styled.div`
 `
 
 export const HeaderLeftContent = styled.div`
-  padding: 12px;
+  height: 100%;
+  padding: 8px 0 0 8px;
   flex: 1;
 `
 

@@ -29,7 +29,8 @@ class Card extends Component {
 
   static defaultProps = {
     mode: 'paper',
-    fullHeight: false
+    fullHeight: false,
+    noPadding: false
   }
 
   render() {
@@ -37,16 +38,16 @@ class Card extends Component {
 
     return (
       <CardStyled fullHeight={fullHeight}>
-        <CardContentStyled>{this.props.children}</CardContentStyled>
+        <CardContentStyled {...this.props}>{this.props.children}</CardContentStyled>
         {mode === 'form' ? (
           submitting ? (
             <SubmittingIndicatorStyled color="primary" />
           ) : (
-            <SubmittingIndicatorPlaceholderStyled />
-          )
+              <SubmittingIndicatorPlaceholderStyled />
+            )
         ) : (
-          <div />
-        )}
+            <div />
+          )}
       </CardStyled>
     )
   }

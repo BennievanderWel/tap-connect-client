@@ -36,7 +36,7 @@ class Header extends Component {
     return (
       <HeaderStyled>
         <HeaderLeftContent>
-          <Typography variant="title">TapConnect</Typography>
+          <Typography variant="h6">TapConnect</Typography>
         </HeaderLeftContent>
         <HeaderRightContent>
           <UsernameText>

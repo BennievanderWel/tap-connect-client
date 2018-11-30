@@ -20,7 +20,7 @@ class HeaderContainer extends Component {
    */
   welcomeTheLoggedInUser() {
     const user = this.props.client.readQuery({ query: getUserQuery }).getUser
-    emitMessage(`Welcome ${user.username}`)
+    emitMessage(`Welkom ${user.username}`)
   }
 
   render() {
