@@ -5,6 +5,7 @@ export const DashboardStyled = styled.div`
 `
 
 export const DashboardContentStyled = styled.div`
+  display: flex;
   height: calc(100% - 50px);
   padding: 8px;
 `

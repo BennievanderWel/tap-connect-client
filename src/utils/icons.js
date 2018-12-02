@@ -10,7 +10,7 @@ import AddUserIcon from '@material-ui/icons/PersonAdd'
 import UserIcon from '@material-ui/icons/Person'
 
 const Spacer = styled.div`
-  margin-right: 16px;
+  ${({ marginRight }) => (marginRight ? 'margin-right: 16px;' : '')}
   height: 24px;
 `
 
@@ -21,18 +21,23 @@ const iconMapper = {
   clear: ClearIcon,
   add: AddIcon,
   user: UserIcon,
-  addUser: AddUserIcon
+  addUser: AddUserIcon,
 }
 
-const Icon = ({ icon }) => {
-  const Icon = iconMapper[icon]
+const Icon = ({ icon, marginRight }) => {
+  const MappedIcon = iconMapper[icon]
   return (
-    <Spacer>
-      <Icon />
+    <Spacer marginRight={marginRight}>
+      <MappedIcon />
     </Spacer>
   )
 }
 
-Icon.propTypes = { icon: PropTypes.string }
+Icon.propTypes = {
+  icon: PropTypes.string.isRequired,
+  marginRight: PropTypes.bool,
+}
+
+Icon.defaultProps = { marginRight: false }
 
 export default Icon

@@ -5,6 +5,4 @@ export const ChatListHolderStyled = styled.div`
   height: 100%;
 `
 
-export const ChatListStyled = styled.div`
-
-`
+export const ChatListStyled = styled.div``

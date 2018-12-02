@@ -4,9 +4,9 @@ import {
   LoginStyled,
   LoginFormHolderStyled,
   LoginButtonHolderStyled,
-  LoginInputHolderStyled
+  LoginInputHolderStyled,
 } from './login.styled'
-import Card from '../card/card'
+import Card from '../../utils/components/card/card'
 import TextField from '@material-ui/core/TextField'
 import { Typography, Button } from '@material-ui/core'
 
@@ -16,46 +16,46 @@ const Login = ({
   emailValue,
   passwordValue,
   msg,
-  submitting
+  submitting,
 }) => (
   <LoginStyled>
     <LoginFormHolderStyled>
-      <Card mode="form" submitting={submitting}>
+      <Card mode='form' submitting={submitting}>
         <form
           onSubmit={e => {
             e.preventDefault()
             onLogin()
           }}
         >
-          <Typography variant="title" align="center">
+          <Typography variant='title' align='center'>
             TapConnect
           </Typography>
           <LoginInputHolderStyled>
             <TextField
               fullWidth
-              id="email"
-              label="E-mail"
+              id='email'
+              label='E-mail'
               value={emailValue}
               disabled={submitting}
               onChange={e => onInputChange(e.target.id, e.target.value)}
             />
             <TextField
               fullWidth
-              id="password"
-              type="password"
-              label="Password"
+              id='password'
+              type='password'
+              label='Password'
               value={passwordValue}
               disabled={submitting}
               onChange={e => onInputChange(e.target.id, e.target.value)}
             />
           </LoginInputHolderStyled>
-          {msg && <Typography color="error">{msg}</Typography>}
+          {msg && <Typography color='error'>{msg}</Typography>}
           <LoginButtonHolderStyled>
             <Button
-              color="primary"
-              variant="raised"
+              color='primary'
+              variant='raised'
               fullWidth
-              type="submit"
+              type='submit'
               disabled={submitting}
             >
               {submitting ? 'Inloggen..' : 'Log in'}
@@ -75,5 +75,5 @@ Login.propTypes = {
   emailValue: PropTypes.string.isRequired,
   passwordValue: PropTypes.string.isRequired,
   msg: PropTypes.string,
-  submitting: PropTypes.bool.isRequired
+  submitting: PropTypes.bool.isRequired,
 }

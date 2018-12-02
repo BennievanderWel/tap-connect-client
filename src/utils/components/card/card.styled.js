@@ -7,10 +7,11 @@ export const CardStyled = styled.div`
   background-color: ${props => props.theme.colors.offwhite};
   border-radius: 4px;
   ${props => (props.fullHeight ? 'height: 100%' : '')};
+  ${props => (props.fullWidth ? 'width: 100%' : '')};
 `
 
 export const CardContentStyled = styled.div`
-  padding: ${({ noPadding }) => noPadding ? '0px' : '12px'};
+  padding: ${({ noPadding }) => (noPadding ? '0px' : '12px')};
 `
 
 export const SubmittingIndicatorStyled = styled(LinearProgress)`

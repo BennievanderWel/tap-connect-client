@@ -1,51 +1,19 @@
 import React, { Component } from 'react'
-import { ChatListStyled } from './chat-list.styled'
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText
-} from '@material-ui/core'
 import { Query } from 'react-apollo'
 import { getChatsQuery } from '../../services/api/queries'
 import Loader from '../../utils/components/loader'
-import Text from '../../utils/components/text'
-import Icon from '../../utils/icons'
+import ChatList from './chat-list'
 
 class ChatListContainer extends Component {
-
-  renderChats(chats) {
-    if (chats.length === 0) {
-      return (
-        <Text fontStyle="italic" color="grey" text="Je hebt nog geen chats" />
-      )
-    } else {
-      return (
-        <List>
-          {chats.map(chat => (
-            <ListItem key={chat._id} button>
-              <ListItemIcon>
-                <Icon icon="user" />
-              </ListItemIcon>
-              <ListItemText primary={chat.users[0].username} />
-            </ListItem>
-          ))}
-        </List>
-      )
-    }
-  }
-
-
   render() {
-
     return (
       <Query query={getChatsQuery}>
         {({ loading, data }) => {
           return (
-            <ChatListStyled>
+            <React.Fragment>
               {loading && <Loader />}
-              {!loading && this.renderChats(data.getChats)}
-            </ChatListStyled>
+              {!loading && <ChatList chats={data.getChats} />}
+            </React.Fragment>
           )
         }}
       </Query>

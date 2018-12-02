@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
-import Card from '../card/card'
-import { SidebarStyled, SideBarBtnSectionStyled } from './sidebar.styled'
-import { Button } from '@material-ui/core'
-import Icon from '../../utils/icons'
 import AddChatDialog from '../chat-list/dialogs/addChat'
 import emitMessage from '../messageToaster/MessageToaster'
-import ChatListContainer from '../chat-list/chat-list.container';
+import Sidebar from './sidebar'
 
-class Sidebar extends Component {
-  constructor() {
-    super()
+class SidebarContainer extends Component {
+  constructor(props) {
+    super(props)
 
     this.state = { showAddDialog: false, submittingAddDialog: false }
 
@@ -17,10 +13,16 @@ class Sidebar extends Component {
     this.addChat = this.addChat.bind(this)
   }
 
+  /**
+   * Toggle the dialog to add a new chat
+   */
   toggleAddDialog() {
     this.setState(prevProps => ({ showAddDialog: !prevProps.showAddDialog }))
   }
 
+  /**
+   * TBD
+   */
   addChat() {
     this.setState(() => ({ showAddDialog: false }))
     emitMessage('Nieuwe chat succesvol aangemaakt')
@@ -30,30 +32,17 @@ class Sidebar extends Component {
     const { showAddDialog, submittingAddDialog } = this.state
 
     return (
-      <SidebarStyled>
+      <React.Fragment>
         <AddChatDialog
           open={showAddDialog}
           submitting={submittingAddDialog}
           onClose={this.toggleAddDialog}
           onSave={this.addChat}
         />
-        <Card fullHeight noPadding>
-          <SideBarBtnSectionStyled>
-            <Button
-              color="primary"
-              variant="outlined"
-              fullWidth
-              onClick={this.toggleAddDialog}
-            >
-              <Icon icon="addUser" />
-              Nieuwe chat
-          </Button>
-          </SideBarBtnSectionStyled>
-          <ChatListContainer />
-        </Card>
-      </SidebarStyled>
+        <Sidebar toggleAddDialog={this.toggleAddDialog} />
+      </React.Fragment>
     )
   }
 }
 
-export default Sidebar
+export default SidebarContainer

@@ -9,7 +9,7 @@ import { IconButton } from '@material-ui/core'
 class MessageToaster extends Component {
   static propTypes = {
     queue: PropTypes.array, // Provided by Redux
-    deleteMessage: PropTypes.func // Provided by Redux
+    deleteMessage: PropTypes.func, // Provided by Redux
   }
 
   constructor() {
@@ -17,7 +17,7 @@ class MessageToaster extends Component {
 
     this.state = {
       open: false,
-      messageInProcess: null
+      messageInProcess: null,
     }
 
     this.handleClose = this.handleClose.bind(this)
@@ -65,7 +65,7 @@ class MessageToaster extends Component {
       () => ({ messageInProcess: null, open: false }),
       () => {
         this.processQueue()
-      }
+      },
     )
   }
 
@@ -75,7 +75,7 @@ class MessageToaster extends Component {
       <MessageToasterStyled
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'center'
+          horizontal: 'center',
         }}
         open={open}
         autoHideDuration={2000}
@@ -83,9 +83,9 @@ class MessageToaster extends Component {
         onExited={this.handleExited}
         message={messageInProcess ? messageInProcess.message : ''}
         action={[
-          <IconButton key="close" onClick={this.handleClose}>
-            <Icon icon="clear" />
-          </IconButton>
+          <IconButton key='close' onClick={this.handleClose}>
+            <Icon icon='clear' />
+          </IconButton>,
         ]}
       />
     )
@@ -93,10 +93,10 @@ class MessageToaster extends Component {
 }
 
 const mapPropsToState = ({ messages }) => ({
-  queue: messages
+  queue: messages,
 })
 
 export default connect(
   mapPropsToState,
-  { deleteMessage }
+  { deleteMessage },
 )(MessageToaster)
